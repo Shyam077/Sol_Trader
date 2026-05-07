@@ -2,4 +2,12 @@
 venv/
 __pycache__/
 *.pyc
+*.pyo
+logs/agent.log
+logs/agent_error.log
+logs/sync.log
+logs/trades.db          ← most important — never push DB.env
+venv/
+__pycache__/
+*.pyc
 logs/
