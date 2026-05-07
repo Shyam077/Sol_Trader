@@ -25,7 +25,7 @@ from executor.paper import PaperExecutor
 
 logger = logging.getLogger(__name__)
 
-PAIRS = [p.replace("-", "/").replace("USD", "USDT")
+PAIRS = [p.replace("-", "/").replace("/USD", "/USDT")
          for p in os.getenv("TRADE_PAIRS", "BTC-USD,ETH-USD,SOL-USD").split(",")]
 
 
