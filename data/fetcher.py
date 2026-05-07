@@ -1,5 +1,5 @@
 """
-data/fetcher.py - Uses Binance public API, zero API key needed
+data/fetcher.py - Uses Bybit public API, zero API key needed
 """
 import logging, requests, pandas as pd, ccxt, os
 from datetime import datetime, timezone
@@ -10,8 +10,11 @@ logger = logging.getLogger(__name__)
 
 class CoinbaseFetcher:
     def __init__(self):
-        self.exchange = ccxt.binance({"enableRateLimit": True, "options": {"defaultType": "spot"}})
-        logger.info("MarketFetcher ready | Binance public API (no key needed)")
+        self.exchange = ccxt.bybit({
+            "enableRateLimit": True,
+            "options": {"defaultType": "spot"},
+        })
+        logger.info("MarketFetcher ready | Bybit public API (no key needed)")
 
     def fetch_ohlcv(self, symbol, timeframe="15m", limit=200):
         try:
