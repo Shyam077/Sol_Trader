@@ -89,3 +89,6 @@ class DataPipeline:
             "fear_greed":  self.sentiment.fetch_fear_greed(),
             "timestamp":   datetime.now(timezone.utc),
         }
+    def snapshot_ohlcv(self, timeframe="1m") -> dict:
+        """Fetch OHLCV only — used for 1m/3m scalping data."""
+        return self.coinbase.fetch_multi_ohlcv(self.pairs, timeframe, limit=100)
